@@ -1,0 +1,88 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff007a;
+    --neon-gold: #ffcc00;
+    --bg-dark: #050505;
+}
+
+body {
+    margin: 0; background: radial-gradient(circle, #1a1a2e, #000);
+    color: white; height: 100vh; display: flex;
+    justify-content: center; align-items: center;
+    font-family: 'Segoe UI', sans-serif; overflow: hidden;
+    touch-action: none;
+}
+
+#game-wrapper {
+    position: relative; width: 900px; height: 550px;
+    background: #111; border-radius: 25px;
+    border: 3px solid rgba(255, 204, 0, 0.4);
+    box-shadow: 0 0 50px rgba(0, 243, 255, 0.1);
+    overflow: hidden;
+}
+
+canvas { width: 100%; height: 100%; display: block; }
+
+/* HUD */
+.hud {
+    position: absolute; top: 15px; width: 90%; left: 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(20, 20, 25, 0.8); backdrop-filter: blur(15px);
+    padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);
+    z-index: 10; font-size: 0.9rem;
+}
+
+/* الميني جيم */
+#mini-game-overlay {
+    display: none; position: absolute; inset: 0;
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+    z-index: 100; justify-content: center; align-items: center;
+}
+
+.mini-game-box {
+    background: rgba(30, 30, 40, 0.9); padding: 30px;
+    border-radius: 30px; border: 2px solid var(--neon-gold); text-align: center;
+}
+
+.key-container { display: flex; gap: 10px; margin: 20px 0; justify-content: center; }
+.key-box {
+    width: 50px; height: 50px; background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.2); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.key-box.active { background: var(--neon-gold); color: #000; box-shadow: 0 0 20px var(--neon-gold); }
+
+/* أزرار الجوال (مقلوبة: التحكم يمين والضرب يسار) */
+#mobile-controls {
+    display: none; position: absolute; bottom: 30px; width: 100%;
+    flex-direction: row-reverse; /* هذا السطر يقلب الأماكن */
+    justify-content: space-between; padding: 0 30px; pointer-events: none;
+    box-sizing: border-box;
+}
+
+.ctrl-btn {
+    pointer-events: auto; width: 65px; height: 65px;
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(8px);
+    border: 2px solid var(--neon-blue); border-radius: 50%;
+    color: white; font-size: 1.5rem; display: flex;
+    align-items: center; justify-content: center;
+    user-select: none; -webkit-tap-highlight-color: transparent;
+}
+
+.ctrl-btn:active { background: var(--neon-blue); transform: scale(0.9); }
+.ctrl-btn.action { width: 85px; height: 85px; border-color: var(--neon-pink); background: rgba(255, 0, 122, 0.15); }
+
+.d-pad { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.horizontal-btns { display: flex; gap: 50px; }
+
+/* التايمرات */
+.mini-timer-container { width: 100%; height: 6px; background: #222; border-radius: 5px; overflow: hidden; }
+#mini-timer-fill { width: 100%; height: 100%; background: var(--neon-pink); }
+.main-timer-track { position: absolute; bottom: 0; width: 100%; height: 6px; }
+#main-timer-fill { width: 100%; height: 100%; background: var(--neon-blue); transition: 0.3s linear; }
+
+@media (max-width: 900px) {
+    #game-wrapper { width: 100vw; height: 100vh; border-radius: 0; border: none; }
+    #mobile-controls { display: flex; }
+    .hud { top: 10px; font-size: 0.75rem; }
+}

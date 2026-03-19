@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>هروب العيدية | نسخة الجوال الملكية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game-wrapper">
+    <div class="hud">
+        <div class="stat"><span class="label">💰 العيدية:</span> <span id="score" class="gold-text">0</span></div>
+        <div id="status-text">اجمع العيديات من الأرض!</div>
+        <div class="stat"><span class="label">⏰:</span> <span id="timer" class="neon-blue">30</span></div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="mini-game-overlay">
+        <div class="mini-game-box">
+            <h2 class="eid-title">⚡ تحدي السرعة ⚡</h2>
+            <div class="mini-timer-container"><div id="mini-timer-fill"></div></div>
+            <div id="key-container" class="key-container"></div>
+            <p id="instruction-hint">الأسهم ثابتة.. ركز واضغط بسرعة!</p>
+        </div>
+    </div>
+
+    <div id="mobile-controls">
+        <div class="d-pad">
+            <button class="ctrl-btn" id="btn-up">↑</button>
+            <div class="horizontal-btns">
+                <button class="ctrl-btn" id="btn-left">←</button>
+                <button class="ctrl-btn" id="btn-right">→</button>
+            </div>
+            <button class="ctrl-btn" id="btn-down">↓</button>
+        </div>
+        <div class="action-btns">
+            <button class="ctrl-btn action" id="btn-space">⚔️</button>
+        </div>
+    </div>
+
+    <div class="main-timer-track"><div id="main-timer-fill"></div></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
